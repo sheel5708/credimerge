@@ -39,7 +39,7 @@ let usersCache: UserRecord[] = [];
 export function loadUsers(): UserRecord[] {
   if (usersCache.length > 0) return usersCache;
 
-  const csvPath = path.join(__dirname, '..', 'data', 'users.csv');
+  const csvPath = path.join(process.cwd(), 'src', 'data','users.csv');
   const raw = fs.readFileSync(csvPath, 'utf-8');
   const lines = raw.trim().split('\n');
   const headers = lines[0].split(',').map(h => h.trim());
